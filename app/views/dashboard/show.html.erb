@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Dashboard</title>
+  <!-- Add any necessary CSS or styling links here -->
+  <style>
+    /* Add your CSS styles here */
+    .dashboard {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .section-content {
+      /* Add styling for section content */
+    }
+  </style>
+</head>
+<body>
+
+<div class="dashboard">
+  <h1>Welcome to Your Dashboard</h1>
+
+  <div class="section">
+    <h2>User Information</h2>
+    <div class="section-content">
+      <% if current_user %>
+        <p><strong>Name:</strong> <%= current_user.name %></p>
+        <p><strong>Email:</strong> <%= current_user.email %></p>
+        <!-- Add other user-related information here -->
+      <% else %>
+        <p>No user information available.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Budget Overview</h2>
+    <div class="section-content">
+      <%
+=begin%>
+ <% if @budgets.any? %>
+        <ul>
+          <% @budgets.each do |budget| %>
+            <li><strong><%= budget.category %>:</strong> <%= number_to_currency(budget.amount) %></li>
+            <!-- Display other budget-related information here -->
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No budgets available.</p>
+      <% end %> 
+<%
+=end%>
+    </div>
+  </div>
+
+  <!-- Add more sections as needed for different information -->
+
+</div>
+
+</body>
+</html>
