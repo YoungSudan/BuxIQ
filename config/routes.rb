@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "/dashboard" => "dashboard#show"
+
+  get "/plaid/create_link_token" => "plaid#create_link_token"
+  post "/plaid/exchange_public_token" => "plaid#exchange_public_token"
+
 end

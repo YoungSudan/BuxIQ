@@ -1,0 +1,48 @@
+class PlaidController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
+    def create_link_token
+        # Create a link_token for the given user
+        request = Plaid::LinkTokenCreateRequest.new(
+            {
+                user: { client_user_id: 'Colin' },
+                client_name: 'BuxIQ',
+                products: ['transactions'],
+                country_codes: ['CA'],
+                language: "en",
+            }
+        )
+
+        response = client.link_token_create(request)
+        puts(response)
+
+        render json: response.to_json
+    end 
+
+    def exchange_public_token 
+        request = Plaid::ItemPublicTokenExchangeRequest.new(
+            {
+              public_token: params["public_token"]
+            }
+          )
+          response = client.item_public_token_exchange(request)
+          # These values should be saved to a persistent database and
+          # associated with the currently signed-in user
+          access_token = response.access_token
+          item_id = response.item_id
+
+          render json: {
+            token: access_token,
+            item_id: item_id
+        }.to_json
+    end
+
+    def redirect
+        
+    end
+
+    private 
+    def client 
+        PlaidService.new.client
+    end
+end

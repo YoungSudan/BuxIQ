@@ -262,7 +262,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.1)
-  plaid
+  plaid (~> 24.3)
   puma (>= 5.0)
   rails (~> 7.1.2)
   redis (>= 4.0.1)

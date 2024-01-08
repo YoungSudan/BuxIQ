@@ -68,4 +68,4 @@ end
 
 gem "devise"
 gem 'annotate'
-gem 'plaid'
+gem 'plaid', '~> 24.3'
