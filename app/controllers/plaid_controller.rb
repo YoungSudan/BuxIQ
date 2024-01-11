@@ -5,14 +5,14 @@ class PlaidController < ApplicationController
         # Create a link_token for the given user
         request = Plaid::LinkTokenCreateRequest.new(
             {
-                user: { client_user_id: 'Colin' },
+                user: { client_user_id: current_user.id.to_s },
                 client_name: 'BuxIQ',
                 products: ['transactions'],
                 country_codes: ['CA'],
                 language: "en",
             }
         )
-
+        
         response = client.link_token_create(request)
         puts(response)
 
@@ -31,14 +31,15 @@ class PlaidController < ApplicationController
           access_token = response.access_token
           item_id = response.item_id
 
-          render json: {
-            token: access_token,
-            item_id: item_id
-        }.to_json
+          current_user.update!(access_token:access_token, plaid_item_id: item_id)
+          PullTransactionsJob.perform_now(current_user)
+          head :ok
     end
 
     def redirect
-        
+    end
+
+    def trasnaction_sync_webhook
     end
 
     private 

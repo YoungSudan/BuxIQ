@@ -69,3 +69,4 @@ end
 gem "devise"
 gem 'annotate'
 gem 'plaid', '~> 24.3'
+gem "maintenance_tasks", "~> 2.4"

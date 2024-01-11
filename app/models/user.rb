@@ -12,10 +12,21 @@
 #  updated_at             :datetime         not null
 #  first_name             :string
 #  last_name              :string
+#  access_token           :string
+#  plaid_item_id          :string
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :transactions
+
+
+  def total_expense_amount
+  end
+
+  def total_transaction_amount
+    transactions.sum(:amount)
+  end
 end
