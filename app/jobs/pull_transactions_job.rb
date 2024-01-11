@@ -20,7 +20,6 @@ class PullTransactionsJob < ApplicationJob
 
     # Process the transactions - For example, you can store them in your database
     if transactions
-      byebug
       # Process and store transactions as needed
       transactions.each do |transaction|
         # Handle each transaction (e.g., save it to your database)

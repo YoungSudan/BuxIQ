@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get "/plaid/create_link_token" => "plaid#create_link_token"
   post "/plaid/exchange_public_token" => "plaid#exchange_public_token"
 
+  resources :transaction, only: [:index]
+
 end

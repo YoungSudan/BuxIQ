@@ -33,6 +33,7 @@ class PlaidController < ApplicationController
 
           current_user.update!(access_token:access_token, plaid_item_id: item_id)
           PullTransactionsJob.perform_now(current_user)
+          
           head :ok
     end
 
