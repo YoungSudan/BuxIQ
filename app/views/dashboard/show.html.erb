@@ -1,41 +1,41 @@
-<section class="bg-white dark:bg-gray-900">
-  <div class="mx-auto px-4 py-5 sm:px-6 lg:px-8">    
-    <div class="mt-8 sm:mt-12">
-      <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div
-          class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center dark:border-gray-800"
-        >
-          <dt class="order-last text-lg font-medium text-gray-500 dark:text-gray-400">
-            Total Expenses
-          </dt>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-          <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">
-            <%= current_user.total_transaction_amount%>
-          </dd>
-        </div>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
 
-        <div
-          class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center dark:border-gray-800"
-        >
-          <dt class="order-last text-lg font-medium text-gray-500 dark:text-gray-400">
-            Total Balance
-          </dt>
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-          <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
-        </div>
+    <header>
+        <h1>Your Website</h1>
+    </header>
 
-        <div
-          class="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center dark:border-gray-800"
-        >
-          <dt class="order-last text-lg font-medium text-gray-500 dark:text-gray-400">
-            Total Addons
-          </dt>
+    <section>
+        <h2>Welcome to our homepage!</h2>
+        <p>This is a simple example of an HTML homepage.</p>
+        <p>Feel free to customize and add your content here.</p>
+    </section>
 
-          <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
-        </div>
-      </dl>
-    </div>
-
-    <%= render 'accounts_table'%>
-  </div>
-</section>
+</body>
+</html>

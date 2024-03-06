@@ -3,7 +3,6 @@ class DashboardController < ApplicationController
 
     def show
         @user = current_user
-        @accounts = current_user.accounts
     end 
 
 end
