@@ -2,21 +2,19 @@
 #
 # Table name: accounts
 #
-#  id                :bigint           not null, primary key
-#  plaid_account_id  :string
-#  name              :string
-#  official_name     :string
-#  mask              :string
-#  account_type      :string
-#  account_subtype   :string
-#  current_balance   :decimal(10, 2)
-#  available_balance :decimal(10, 2)
-#  currency_code     :string
-#  institution_name  :string
-#  user_id           :bigint           not null
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  limit             :decimal(, )
+#  id            :bigint           not null, primary key
+#  account_id    :string           not null
+#  name          :string
+#  official_name :string
+#  available     :decimal(10, 2)
+#  current       :decimal(10, 2)
+#  limit         :decimal(10, 2)
+#  currency_code :string
+#  mask          :string
+#  subtype       :string
+#  type          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 class Account < ApplicationRecord
     belongs_to :user

@@ -1,0 +1,15 @@
+{
+    "categoryName" : "Fast Food",
+    "spentAmount" : 0.0,
+    "budgetAmount" : 25.0,
+    "type" : "MONTHLY",
+    "budgetStartDate" : "2022-05-01",
+    "budgetEndDate" : null,
+    "sourceType" : "CATEGORY",
+    "creationType" : "MANUAL",
+    "reset" : null,
+    "rollover" : null,
+    "rolloverAmount" : null,
+    "creationTime" : "2022-05-04T21:01:38",
+    "lastUpdatedTime" : "2022-05-04T21:01:38"
+}

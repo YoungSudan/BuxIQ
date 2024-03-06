@@ -1,0 +1,26 @@
+{
+    "transactions": [
+      {
+        "account_id": "BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp",
+        "amount": 28.34,
+        "currency_code": "USD",
+        "category_id": "13005032",
+        "name": "Dd Doordash Burgerkin",
+        "merchant_name": "Burger King",
+        "logo_url": "https://plaid-merchant-logos.plaid.com/burger_king_155.png",
+        "website": "burgerking.com",
+        "payment_channel": "online",
+        "pending": true,
+        "primary": "FOOD_AND_DRINK",
+        "detailed": "FOOD_AND_DRINK_FAST_FOOD",
+        "personal_finance_category_icon_url": "https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png",
+        "transaction_id": "yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0",
+        "transaction_code": null,
+        "transaction_type": "digital",
+        "authorized_date": "2023-09-27",
+        "authorized_datetime": "2023-09-27T08:01:58Z",
+        "date": "2023-09-28",
+        "datetime": "2023-09-28T15:10:09Z"
+      }
+    ]
+  }

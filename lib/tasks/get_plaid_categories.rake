@@ -1,18 +1,18 @@
 require 'plaid'
+require 'csv'
 require 'byebug'
 
 namespace :plaid do
     desc 'Create Plaid Categories'
     task get_categories: [:environment] do
-        client = PlaidService.new.client
-
-        # Fetch Plaid categories
-        response = client.categories_get({})
-        
-        puts 'Creating Categories'
-        response.categories.each do |plaid_category|
-            puts "#{plaid_category}"
-            Category.create_from_plaid(plaid_category)
+        puts 'Creating Categories...\n'
+        CSV.foreach(("/Users/youngsudan/Desktop/projects/BuxIQ/public/Mint/transactions-personal-finance-category-taxonomy.csv"), headers: true, col_sep: ",") do |row|
+            puts "[Creating Category #{row[0]}-#{row[1]}]"
+            Category.create!(
+                name: row[0],
+                sub_category: row[1],
+                description: row[2]
+            )
         end
     end
   end
