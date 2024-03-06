@@ -1,3 +1,7 @@
+function connectToPlaid() {
+  console.log('connection')
+}
+
 const createLinkToken = async () => {
     const res = await fetch("/plaid/create_link_token");
     const data = await res.json();
@@ -24,10 +28,6 @@ const handler = Plaid.create({
       console.log(error, metadata);
     },
   });
-
-function connectToPlaid() {
-    console.log('connection')
-}
 
 const button = document.getElementById('plaid-button')
 button.addEventListener('click', () =>{

@@ -14,8 +14,8 @@ class PlaidController < ApplicationController
         )
         
         response = client.link_token_create(request)
-        puts(response)
 
+        puts(response)
         render json: response.to_json
     end 
 
@@ -26,6 +26,7 @@ class PlaidController < ApplicationController
             }
           )
           response = client.item_public_token_exchange(request)
+          
           # These values should be saved to a persistent database and
           # associated with the currently signed-in user
           access_token = response.access_token
