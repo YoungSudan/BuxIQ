@@ -33,7 +33,9 @@ class PlaidController < ApplicationController
           item_id = response.item_id
 
           current_user.update!(access_token:access_token, plaid_item_id: item_id)
+
           PullTransactionsJob.perform_now(current_user)
+          PullAccountsJob.perform_now(current_user)
           
           head :ok
     end

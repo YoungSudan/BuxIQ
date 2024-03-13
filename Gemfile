@@ -70,3 +70,5 @@ gem "devise"
 gem 'annotate'
 gem 'plaid', '~> 24.3'
 gem "maintenance_tasks", "~> 2.4"
+gem 'coffee-rails'
+gem 'rack-cors'

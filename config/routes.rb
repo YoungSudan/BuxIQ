@@ -12,5 +12,13 @@ Rails.application.routes.draw do
   get "/plaid/create_link_token" => "plaid#create_link_token"
   post "/plaid/exchange_public_token" => "plaid#exchange_public_token"
 
+  # get "/transactions" => "transactions#show"
+
+  # get "/accounts" => "accounts#show"
+  # get "/accounts/test" => "accounts#test"
+
+  resources :accounts
+  resources :transactions
+
 
 end

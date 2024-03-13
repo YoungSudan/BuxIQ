@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_092126) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_151540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,24 +24,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_092126) do
     t.string "currency_code"
     t.string "mask"
     t.string "subtype"
-    t.string "type"
+    t.string "account_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.string "budget_name", null: false
-    t.decimal "budget_amount", precision: 10, scale: 2, null: false
-    t.decimal "spent_amount", precision: 10, scale: 2, default: "0.0"
-    t.string "type"
-    t.string "creation_type"
-    t.boolean "rollover"
-    t.decimal "rollover_amount", precision: 10, scale: 2
-    t.datetime "reset"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.decimal "amout", precision: 10, scale: 2
     t.date "budget_start_date"
     t.date "budget_end_date"
+    t.date "reset_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_budgets_on_category_id"
+    t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_092126) do
     t.datetime "authorized_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,4 +95,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_092126) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "users"
+  add_foreign_key "budgets", "categories"
+  add_foreign_key "budgets", "users"
+  add_foreign_key "transactions", "users"
 end

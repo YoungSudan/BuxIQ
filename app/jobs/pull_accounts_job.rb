@@ -19,14 +19,15 @@ class PullAccountsJob < ApplicationJob
         # Example:
         a = Account.create(
           user_id: user.id,
-          plaid_account_id: account.account_id,
-          current_balance: account.balances.current,
-          available_balance: account.balances.available,
+          account_id: account.account_id,
+          current: account.balances.current,
+          available: account.balances.available,
           currency_code: account.balances.iso_currency_code,
           name: account.name,
           official_name: account.official_name,
           account_type: account.type,
-          account_subtype: account.subtype
+          subtype: account.subtype,
+          limit: account.balances.limit
         )
         a.save!
       end

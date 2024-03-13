@@ -12,9 +12,10 @@
 #  currency_code :string
 #  mask          :string
 #  subtype       :string
-#  type          :string
+#  account_type  :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 class Account < ApplicationRecord
     belongs_to :user

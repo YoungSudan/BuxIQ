@@ -26,12 +26,21 @@ class PullTransactionsJob < ApplicationJob
         # Example:
         t = Transaction.create(
           user_id: user.id,
-          transaction_id: transaction.transaction_id,
-          transaction_date: transaction.date,
-          amount: transaction.amount,
           name: transaction.name,
-          category: transaction.category
+          transaction_id: transaction.transaction_id,
+          transaction_type: transaction.transaction_type,
+          
+          amount: transaction.amount,
+          account_id: transaction.account_id,
+
+          primary: transaction.personal_finance_category.primary,
+          detailed: transaction.personal_finance_category.detailed,
+
+          merchant_name: transaction.merchant_name,
+          personal_finance_category_icon_url: transaction.personal_finance_category_icon_url,
+          authorized_datetime: transaction.amount,
         )
+
         t.save!
       end
     else

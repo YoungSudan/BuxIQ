@@ -1,0 +1,45 @@
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Account Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Balance
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Limit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @user.accounts.each do |account|%>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= account.name %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                            <%= account.subtype %>
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= account.current %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= account.limit %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="<%= account_path(account)%>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+            <%end %>
+        </tbody>
+    </table>
+</div>
